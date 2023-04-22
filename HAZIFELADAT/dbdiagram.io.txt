@@ -1,0 +1,46 @@
+Table University {
+  id int [pk]
+  name string
+}
+
+Table Faculty {
+  id int [pk]
+  name string
+}
+
+Table Course {
+  id int [pk]
+  name string
+}
+
+Table UniversityCourse {
+  id int [pk]
+  university int [ref: > University.id]
+  course int [ref: > Course.id]
+  faculty int [ref: > Faculty.id]
+  subject int [ref: > Subject.id]
+  subject_advanced bool
+}
+
+Table Subject {
+  id int [pk]
+  name string
+}
+
+Table CourseSubject {
+  id int [pk]
+  UniversityCourse int [ref: > UniversityCourse.id]
+  subject int [ref: > Subject.id]
+  advanced bool
+}
+
+Table Language {
+  id int [pk]
+  name string
+}
+
+Table LanguageScoreScale {
+  id int [pk]
+  level string
+  value int
+}
